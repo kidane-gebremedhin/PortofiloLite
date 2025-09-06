@@ -19,27 +19,27 @@ const App = () => {
   const projects = [
     {
       id: 1,
-      title: "Distributed E-commerce Platform",
-      brief: "An e-commerce system with a microservices architecture, built for scalability and high availability. It handles thousands of concurrent users and a high volume of transactions.",
-      technologies: ["Java", "Spring Boot", "PostgreSQL", "Kafka", "Docker", "Kubernetes"],
+      title: "Universal Onboarding",
+      brief: "User onboarding platform with a microservices architecture, built for scalability, high availability and high conversion rate. It handles thousands of concurrent users and a high volume of transactions.",
+      technologies: ["Java", "Spring Boot", "PostgreSQL", "Kafka", "Docker", "Kubernetes", "Android"],
       backendDetails: "The core of this system is a set of decoupled microservices for user authentication, product management, order processing, and payment. Communication between services is handled asynchronously via Kafka message queues to ensure high throughput and resilience. The order service utilizes a transactional outbox pattern to guarantee data consistency. We leveraged Docker for containerization and deployed to a Kubernetes cluster for orchestration and self-healing capabilities.",
-      designImg: "https://placehold.co/600x400/1f2937/d1d5db?text=System+Architecture+Diagram"
+      designImg: "#"
     },
     {
       id: 2,
-      title: "Real-time Chat Application",
-      brief: "A real-time, WebSocket-based chat application designed to handle thousands of simultaneous connections with low latency. Features include private messaging, group chats, and read receipts.",
-      technologies: ["Scala", "Akka", "Play Framework", "Redis", "WebSocket", "GraphQL"],
-      backendDetails: "The application's real-time functionality is powered by a Scala backend using the Akka actor model to manage millions of concurrent connections efficiently. The Play Framework provides a robust, stateless foundation, while Redis serves as an in-memory database for rapid caching of session data and recent messages. We implemented a GraphQL API for a more flexible and efficient data retrieval strategy on the client side, minimizing over-fetching.",
-      designImg: "https://placehold.co/600x400/1f2937/d1d5db?text=System+Architecture+Diagram"
+      title: "Rails provider API integration for credit service",
+      brief: "Integrated third-party finanicial rails provider(Coins.ph) leveraging robust APIs to establish reliable and scalable credit data pipelines, enhancing platform capabilities and streamlining data exchange for cashins and cashouts.",
+      technologies: ["Spring boot", "Laravel", "Play Framework", "WebSocket", "RESTful API"],
+      backendDetails: "This seamless integration and enhanced performance reduced transaction errors by 60% while boosting the overall credit disbursement and repayment rates. This smooth integration enabled Tala to lend more credit and collect more repayments while collecting service fee from each transaction.",
+      designImg: "#"
     },
     {
       id: 3,
-      title: "Content Management System (CMS)",
-      brief: "A custom CMS built for a media company, enabling them to manage articles, authors, and user permissions. The API is designed to be highly secure and extensible.",
-      technologies: ["PHP", "Laravel", "MySQL", "Vue.js", "OAuth2"],
-      backendDetails: "This CMS uses a PHP/Laravel backend with a RESTful API. We designed a normalized MySQL database schema to handle complex relationships between content types, authors, and user roles. For authentication and security, we implemented the OAuth2 protocol, providing secure access to the API for both internal and third-party applications. The backend includes a robust permission system, ensuring users can only access and modify content they are authorized to.",
-      designImg: "https://placehold.co/600x400/1f2937/d1d5db?text=System+Architecture+Diagram"
+      title: "Electronic Medical Record (EMR)",
+      brief: "Highly customizable application used by healthcare providers to store, manage, and access comprehensive patient information including medical and treatment history, medications, test results and more. It is designed to improve the quality and efficiency of healthcare delivery by providing timely access to accurate patient information.",
+      technologies: ["Java", "Spring boot", "Laravel", "MySQL", "React", "Vue.js", "Git", "AWS"],
+      backendDetails: "This EMR application uses a Java/Spring boot for backend with a RESTful APIs and MongoDB as database solution to handle the unstructured behavior of the heathcare data. For authentication and security, we implemented the OAuth2 protocol, providing secure access to the application. The frontend was built with NextJS, TypeScript and CSS to make it user friendly and responsive.",
+      designImg: "#"
     },
   ];
 
@@ -74,10 +74,12 @@ const App = () => {
               Kidane Gebremedhin
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 animate-slide-up">
-              Backend-Focused Full-Stack Developer | System Design Expert
+              Full-Stack Developer | I help businesses turn ideas into seamless digital experiences
             </p>
             <p className="text-md md:text-lg max-w-2xl mx-auto text-gray-500 animate-slide-up animation-delay-500">
               Building robust, scalable, and resilient systems from the ground up, with a passion for clean architecture and elegant code.
+              I have been working with Java, Scala, PHP, Node, and NextJS for the past 6 years, building user-friendly web applications.
+              I like solving complex problems, learning new skills, and experimenting with different technologies. When I am not coding, I am probably working on a side project or exploring something new.
             </p>
           </div>
         </section>
@@ -89,6 +91,10 @@ const App = () => {
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
               <p className="text-lg text-gray-400 mb-6">
                 I am a seasoned full-stack developer with a decade of experience focused on the backend. My expertise lies in designing and building complex, enterprise-level systems that can handle significant load and are easy to maintain. My skills in **Java**, **Scala**, and **PHP** have allowed me to architect solutions ranging from high-throughput e-commerce platforms to real-time communication services.
+
+                proactive full-stack developer passionate about creating dynamic web experiences. From frontend to backend, I thrive on solving complex problems with clean, efficient code. My expertise spans React, Next.js, and Node.js, and I am always eager to learn more.
+                When I am not immersed in work, I am exploring new ideas and staying curious. Life is about balance, and I love embracing every part of it.
+                I believe in waking up each day eager to make a difference!
               </p>
               <p className="text-lg text-gray-400">
                 I believe that a great user experience starts with a solid foundation. While I am proficient in modern JavaScript frameworks, my true passion is in optimizing database queries, designing resilient microservices, and setting up efficient DevOps pipelines. I am always looking for the next technical challenge to solve.
@@ -107,8 +113,8 @@ const App = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">Backend Development</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>Languages: Java, Scala, PHP, Node.js</li>
-                  <li>Frameworks: Spring Boot, Play Framework, Laravel</li>
-                  <li>Concepts: Microservices, RESTful/GraphQL API Design, Caching, Concurrency</li>
+                  <li>Frameworks: Spring Boot, Play Framework, Laravel, Yii</li>
+                  <li>Concepts: Microservices, RESTful APIs, Caching</li>
                 </ul>
               </div>
               {/* Databases */}
@@ -116,25 +122,25 @@ const App = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">Databases & Data</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>Relational: PostgreSQL, MySQL</li>
-                  <li>NoSQL: MongoDB, Redis, Cassandra</li>
-                  <li>Messaging: Kafka, RabbitMQ</li>
+                  <li>NoSQL: MongoDB, Firebase</li>
+                  <li>Data: SQL, PL/pgSQL, Snowflake, Sumologic</li>
                 </ul>
               </div>
               {/* DevOps & Cloud */}
               <div className="bg-gray-700 p-6 rounded-xl shadow-md border border-gray-600">
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">DevOps & Cloud</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Cloud: AWS, GCP</li>
+                  <li>Cloud: AWS, Vercel</li>
                   <li>Containers: Docker, Kubernetes</li>
                   <li>CI/CD: GitHub Actions, Jenkins</li>
                 </ul>
               </div>
               {/* Frontend */}
               <div className="bg-gray-700 p-6 rounded-xl shadow-md border border-gray-600">
-                <h3 className="text-2xl font-semibold mb-4 text-teal-400">Frontend Development</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-teal-400">Frontend and Mobile</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Frameworks: React, Vue.js</li>
-                  <li>Languages: JavaScript (ES6+), TypeScript</li>
+                  <li>Frameworks: NextJS, React, Vue.js, Flutter, Android</li>
+                  <li>Languages: JavaScript (ES6+), TypeScript, Dart, Java/Kotlin</li>
                   <li>Styling: Tailwind CSS, CSS3</li>
                 </ul>
               </div>
@@ -205,6 +211,9 @@ const App = () => {
             <div className="text-center space-y-4">
               <p className="text-lg text-gray-400">
                 I am always open to discussing new projects, technical challenges, or collaboration opportunities.
+
+                I am available for full-time roles & freelance projects.
+                I thrive on crafting dynamic web applications, and delivering seamless user experiences.
               </p>
               <div className="flex justify-center gap-4">
                 <a href="kidane12g@gmail.com" className="px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-all">
