@@ -2,6 +2,7 @@
 'use client'; // This component uses client-side hooks like useState, so it must be a Client Component.
 
 import React, { useState } from 'react';
+import GradientText from '@/components/GradientText'
 
 // Main App Component
 const App = () => {
@@ -19,6 +20,14 @@ const App = () => {
   const projects = [
     {
       id: 1,
+      title: "Distributed Retail Platform",
+      brief: "Highly scalable, resilient, and event-driven Distributed Retail Platform (DRP) capable of handling millions of requests and providing real-time inventory and order processing. The platform is built using Spring Boot microservices, ensuring modularity, independent deployment, and fault isolation.",
+      technologies: ["Java", "Spring Boot", "Microservices", "MySql", "MongoDB", "Kafka", "Grafana", "Docker", "Kubernetes", "AWS", "Git", "React", "NextJS"],
+      systemDesignDetails: "The architecture utilizes a decentralized, loosely coupled approach where each business capability is isolated into a separate service. Microservices talk with each other in Syncronious (REST API) and Asynchronous Communication (Event-Driven) fashion. There is also a comprehensive monitoring that provides full visibility into service health, performance, and operational logs.",
+      link: ""
+    },
+    {
+      id: 2,
       title: "Universal Onboarding",
       brief: "User onboarding platform with a microservices architecture, built for scalability, high availability and high conversion rate. It handles thousands of concurrent users and a high volume of transactions. This automates the whole user journey from registration, credit application. KYC submission & evaluation, and credit disbursement.",
       technologies: ["Java", "Spring Boot", "PostgreSQL", "Scala", "Play Framework", "Kafka", "Docker", "Kubernetes", "AWS", "Git", "Android", "React", "NextJS"],
@@ -26,7 +35,7 @@ const App = () => {
       link: "https://tala.co"
     },
     {
-      id: 2,
+      id: 3,
       title: "Rails provider API integration for credit service",
       brief: "Integrated third-party finanicial rails provider(Coins.ph) leveraging robust APIs to establish reliable and scalable credit data pipelines, enhancing platform capabilities and streamlining data exchange about withdrawals and deposits made by customers.",
       technologies: ["Java", "Spring boot", "Laravel", "Scala", "Play Framework", "WebSocket", "RESTful API", "Git"],
@@ -34,7 +43,7 @@ const App = () => {
       link: "https://tala.co"
     },
     {
-      id: 3,
+      id: 4,
       title: "Electronic Medical Record (EMR)",
       brief: "Highly customizable application used by healthcare providers to store, manage, and access comprehensive patient information including medical and treatment history, medications, test results and more. It is designed to improve the quality and efficiency of healthcare delivery by providing timely access to accurate patient information.",
       technologies: ["Java", "Spring boot", "Laravel", "YY", "MySQL", "Git", "AWS", "Flutter", "Vue", "NextJS"],
@@ -56,7 +65,7 @@ const App = () => {
       {/* Navbar */}
       <nav className="fixed w-full z-20 top-0 start-0 bg-gray-900/80 backdrop-blur-sm shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <a href="#home" className="text-xl font-bold text-teal-400">Kidane Gebremedhin</a>
+          <a href="#home" className="text-xl font-bold text-teal-400"><GradientText>Kidane Gebremedhin</GradientText></a>
           <div className="space-x-4">
             <a href="#about" className="hover:text-teal-400 transition-colors">About</a>
             <a href="#skills" className="hover:text-teal-400 transition-colors">Skills</a>
@@ -70,15 +79,16 @@ const App = () => {
         {/* Hero Section */}
         <section id="home" className="h-screen flex items-center justify-center text-center px-4">
           <div className="max-w-4xl mx-auto">
+            Hi, My Name is <br /> 
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-white animate-fade-in">
-              Kidane Gebremedhin
+              <GradientText>Kidane Gebremedhin</GradientText>
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 animate-slide-up">
-              Full-Stack Developer | I help businesses turn ideas into seamless digital experiences
+              Full-Stack Developer | I build distributed, highly available, and Resilient web services.
             </p>
             <p className="text-md md:text-lg max-w-2xl mx-auto text-gray-500 animate-slide-up animation-delay-500">
-              Building robust, scalable, and resilient systems from the ground up, with a passion for clean architecture and elegant code.
-              I have been working with Java, Scala, PHP, Node, React, and NextJS for the past 7 years, building user-friendly web applications. I like solving complex problems, learning new skills, and experimenting with different technologies. When I am not immersed in work, I am probably working on a side project or exploring something new. I believe in waking up each day eager to make a difference!
+              I develop robust, scalable, and fault tolerant systems from the ground up, with a passion for clean architecture and elegant code.
+              I have been working with Java, Spring boot, React, and NextJS for the past 7 years, building high performance web applications. I like solving complex problems, learning new skills, and experimenting with different technologies. When I am not immersed in work, I am probably working on a side project or exploring something new. I believe in waking up each day eager to make a difference!
             </p>
           </div>
         </section>
@@ -89,10 +99,10 @@ const App = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">About Me</h2>
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
               <p className="text-lg text-gray-400 mb-6">
-                I am a seasoned full-stack developer with 7 years of experience developing top-notch web and mobile applications. My expertise lies in designing and building complex, enterprise-level systems that can handle significant load and are easy to maintain. My skills in **Java**, **Scala**, **PHP**, and **JavaScript** empowered me to architect solutions ranging from high-throughput FinTech platforms to real-time communication services.
+                I am a seasoned full-stack developer with 7 years of experience developing top-notch web services and applications. My expertise lies in designing and building complex, enterprise-level systems that can handle significant load and are easy to maintain. My skills in **Java**, **Spring boot**, **PHP**, and **NextJS** empowered me to architect solutions ranging from high-throughput FinTech platforms to real-time communication services.
               </p>
               <p className="text-lg text-gray-400">
-                I am a proactive full-stack developer passionate about creating dynamic web experiences, from backend to frontend. I believe that a great user experience starts with a solid foundation. While I am proficient in modern JavaScript frameworks, my true passion is in optimizing database queries, designing resilient microservices, and building efficient REST APIs. I am always looking for the next technical challenge to solve.
+                I am a proactive full-stack developer passionate about creating reliable web services, from backend to frontend. I believe that a great user experience starts with a solid foundation. While I am proficient in modern JavaScript frameworks, my true passion is in optimizing database queries, designing resilient microservices, and building efficient REST APIs. I am always looking for the next technical challenge to solve.
               </p>
             </div>
           </div>
@@ -108,8 +118,8 @@ const App = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">Backend Development</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>Languages: Java, Scala, PHP, JavaScript</li>
-                  <li>Frameworks: Spring Boot, Play Framework, Laravel, Yii, Node.js</li>
-                  <li>Concepts: OOP, Design patterns, Microservices, RESTful APIs</li>
+                  <li>Frameworks: Spring Boot, Play Framework, Laravel, Yii, NextJS</li>
+                  <li>Concepts: OOP, Design patterns, Microservices, RESTful APIs, Event Driven architecture</li>
                 </ul>
               </div>
               {/* Databases */}
@@ -211,14 +221,11 @@ const App = () => {
                 I am always open to discussing new projects, technical challenges, or collaboration opportunities.
 
                 I am available for full-time roles & freelance projects.
-                I thrive on crafting dynamic web applications, and delivering seamless user experiences.
+                I thrive on crafting efficient web applications, and delivering seamless user experiences.
               </p>
               <div className="flex justify-center gap-4">
-                <a href="kidane12g@gmail.com" className="px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-all">
-                  Email Me
-                </a>
                 <a target='_blank' href="https://www.linkedin.com/in/kidane-gebremedhin/" className="px-6 py-3 bg-gray-700 text-gray-300 font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all">
-                  Connect on LinkedIn
+                  Lets Connect on LinkedIn
                 </a>
               </div>
             </div>
