@@ -84,11 +84,11 @@ const App = () => {
               <GradientText>Kidane Gebremedhin</GradientText>
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 animate-slide-up">
-              Full-Stack Developer | I build distributed, highly available, and Resilient web services.
+              Full-Stack Developer | I build distributed, highly available, and Resilient web applications & services.
             </p>
             <p className="text-md md:text-lg max-w-2xl mx-auto text-gray-500 animate-slide-up animation-delay-500">
               I develop robust, scalable, and fault tolerant systems from the ground up, with a passion for clean architecture and elegant code.
-              I have been working with Java, Spring boot, React, and NextJS for the past 7 years, building high performance web applications. I like solving complex problems, learning new skills, and experimenting with different technologies. When I am not immersed in work, I am probably working on a side project or exploring something new. I believe in waking up each day eager to make a difference!
+              I have been working with Java, Spring boot, Python, FastAPI, Node.js, React, and NextJS for the past 7 years, building high performance web applications. I like solving complex problems, learning new skills, and experimenting with different technologies. When I am not immersed in work, I am probably working on a side project or exploring something new. I believe in waking up each day eager to make a difference!
             </p>
           </div>
         </section>
@@ -99,7 +99,7 @@ const App = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">About Me</h2>
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
               <p className="text-lg text-gray-400 mb-6">
-                I am a seasoned full-stack developer with 7 years of experience developing top-notch web services and applications. My expertise lies in designing and building complex, enterprise-level systems that can handle significant load and are easy to maintain. My skills in **Java**, **Spring boot**, **Python**, **FastAPI**, **PHP**, **Node.js**, **React** and **NextJS** empowered me to architect solutions ranging from high-throughput FinTech platforms to real-time communication services.
+                I am a seasoned full-stack developer with 7 years of experience developing top-notch web services and applications. My expertise lies in designing and building complex, enterprise-level systems in Education, Healthcare, and FinTech industries that can handle significant load and are easy to maintain. My skills in **Java**, **Spring boot**, **Python**, **FastAPI**, **PHP**, **Node.js**, **React** and **NextJS** empowered me to architect solutions ranging from high-throughput FinTech platforms to real-time communication services.
               </p>
               <p className="text-lg text-gray-400">
                 I am a proactive full-stack developer passionate about creating reliable web services, from backend to frontend. I believe that a great user experience starts with a solid foundation. While I am proficient in modern JavaScript frameworks, my true passion is in optimizing database queries, designing resilient microservices, and building efficient REST APIs. I am always looking for the next technical challenge to solve.
