@@ -22,7 +22,7 @@ const App = () => {
       id: 1,
       title: "Distributed Retail Platform",
       brief: "Highly scalable, resilient, and event-driven Distributed Retail Platform (DRP) capable of handling millions of requests and providing real-time inventory and order processing. The platform is built using Spring Boot microservices, ensuring modularity, independent deployment, and fault isolation.",
-      technologies: ["Java", "Spring Boot", "Python", "FastAPI", "Microservices", "MySql", "MongoDB", "Kafka", "Grafana", "Docker", "Kubernetes", "AWS", "Git", "React", "NextJS"],
+      technologies: ["Java", "Spring Boot", "Python", "FastAPI", "Microservices", "PostgreSQL", "MongoDB", "Kafka", "Redis", "Grafana", "Docker", "Kubernetes", "AWS", "Git", "React", "NextJS", "REST APIs", "gRPC"],
       systemDesignDetails: "The architecture utilizes a decentralized, loosely coupled approach where each business capability is isolated into a separate service. Microservices talk with each other in Syncronious (REST API, gRPC) and Asynchronous Communication (Event-Driven) fashion. There is also a comprehensive monitoring that provides full visibility into service health, performance, and operational logs.",
       link: ""
     },
@@ -30,7 +30,7 @@ const App = () => {
       id: 2,
       title: "Universal Onboarding",
       brief: "User onboarding platform with a microservices architecture, built for scalability, high availability and high conversion rate. It handles thousands of concurrent users and a high volume of transactions. This automates the whole user journey from registration, credit application. KYC submission & evaluation, and credit disbursement.",
-      technologies: ["Java", "Spring Boot", "Python", "FastAPI", "PostgreSQL", "Scala", "Play Framework", "Kafka", "Docker", "Kubernetes", "AWS", "Git", "Android", "React", "NextJS"],
+      technologies: ["Java", "Spring Boot", "Redis", "Python", "FastAPI", "PostgreSQL", "Scala", "Play Framework", "Kafka", "Docker", "Kubernetes", "AWS", "Git", "Android", "React", "NextJS", "REST APIs", "gRPC"],
       systemDesignDetails: "The core of this system is a set of decoupled microservices for user authentication, product management, order processing, and payment. Communication between services is handled asynchronously via Kafka message queues to ensure high throughput and resilience. The order service utilizes a transactional outbox pattern to guarantee data consistency. We leveraged Docker for containerization and deployed to a Kubernetes cluster for orchestration and self-healing capabilities.",
       link: "https://tala.co"
     },
@@ -38,7 +38,7 @@ const App = () => {
       id: 3,
       title: "Rails provider API integration for credit service",
       brief: "Integrated third-party finanicial rails provider(Coins.ph) leveraging robust APIs to establish reliable and scalable credit data pipelines, enhancing platform capabilities and streamlining data exchange about withdrawals and deposits made by customers.",
-      technologies: ["Java", "Spring boot", "Laravel", "Python", "FastAPI", "Scala", "Play Framework", "WebSocket", "RESTful API", "Git"],
+      technologies: ["Java", "Spring boot", "Redis", "Kafka", "Laravel", "Python", "FastAPI", "Scala", "Play Framework", "WebSocket", "RESTful API", "Git"],
       systemDesignDetails: "This integration was done with Security and Compliance first, through the application of digital signatures, HMAC authentication and adhering to all relevant regulations. Enforecd Reliability and Availability through Idempotency, Retry Mechanisms, and Circuit Breakers. We used Message Queues and Webhooks for asynchronous processing and transaction status updates. We defined Clear Error Codes, Comprehensive Logging, Alerting, and Reconciliation process for accounting to ensure all transaction records are accurate.",
       link: "https://tala.co"
     },
@@ -46,7 +46,7 @@ const App = () => {
       id: 4,
       title: "Electronic Medical Record (EMR)",
       brief: "Highly customizable application used by healthcare providers to store, manage, and access comprehensive patient information including medical and treatment history, medications, test results and more. It is designed to improve the quality and efficiency of healthcare delivery by providing timely access to accurate patient information.",
-      technologies: ["Java", "Spring boot", "Python", "FastAPI", "Laravel", "YY", "MySQL", "Git", "AWS", "Flutter", "Vue", "NextJS"],
+      technologies: ["Java", "Spring boot", "Python", "FastAPI", "Laravel", "YII", "MySQL", "Git", "AWS", "Flutter", "Vue", "NextJS", "REST APIs", "gRPC", "Redis"],
       systemDesignDetails: "This EMR application uses Java/Spring boot, Node.js and RESTful APIs for backend and MongoDB as database solution to handle the unstructured nature of the heathcare data. For authentication and security, we implemented OAuth2 along with JSON Web Tokens (JWTs), providing secure access to the application. The frontend was built with React, NextJS, TypeScript and Tailwind CSS to make it user friendly and responsive.",
       link: ""
     },
@@ -117,9 +117,9 @@ const App = () => {
               <div className="bg-gray-700 p-6 rounded-xl shadow-md border border-gray-600">
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">Backend Development</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Languages: Java, Scala, PHP, JavaScript</li>
-                  <li>Frameworks: Spring Boot, Play Framework, Laravel, Yii, NextJS</li>
-                  <li>Concepts: OOP, Design patterns, Microservices, RESTful APIs, Event Driven architecture</li>
+                  <li>Languages: Java, Python, Scala, PHP, JavaScript</li>
+                  <li>Frameworks: Spring Boot, FastAPI, Play Framework, Laravel, Node.js, Yii, NextJS</li>
+                  <li>Concepts: OOP, Design patterns, Microservices, gRPC, RESTful APIs, Event Driven architecture</li>
                 </ul>
               </div>
               {/* Databases */}
@@ -135,7 +135,7 @@ const App = () => {
               <div className="bg-gray-700 p-6 rounded-xl shadow-md border border-gray-600">
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">DevOps & Cloud</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  <li>Cloud: AWS, Vercel</li>
+                  <li>Cloud: AWS, Vercel, Supabase</li>
                   <li>Containers: Docker, Kubernetes</li>
                   <li>CI/CD: GitHub Actions, Jenkins</li>
                 </ul>
@@ -154,7 +154,7 @@ const App = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-teal-400">Collaboration & Communication Tools</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>Collaboration: Git, Jira, Confuluence, Lucid Chart</li>
-                  <li>Communication: Slack, Zoom, Google Meet</li>
+                  <li>Communication: Slack, Discord, Zoom, Google Meet</li>
                 </ul>
               </div>
             </div>
