@@ -22,10 +22,18 @@ const App = () => {
     {
       id: 1,
       title: "AI Customer Service Chatbot",
-      brief: "A multi-tenant AI support platform that lets any business drop a chat widget onto its site and deflect repetitive support conversations to an agent grounded in its own knowledge base. Operators get a real-time inbox, human handoff, analytics, and self-serve billing, so the product onboards and monetizes customers without engineering in the loop. Retrieval is namespaced per organization and agent, making tenant isolation a hard architectural guarantee rather than a policy promise.",
-      technologies: ["TypeScript", "Next.js", "React", "Express", "MongoDB", "Redis", "Socket.io", "RAG", "Pinecone", "OpenRouter", "Firecrawl", "NextAuth", "Paddle", "MinIO", "Turborepo", "Tailwind CSS", "Docker", "GitHub Actions"],
-      systemDesignDetails: "A pnpm and Turborepo monorepo of four apps (operator dashboard, chat widget, embed loader, and an Express + Socket.io API) plus three shared packages for UI primitives, cross-app types, and tooling config. The RAG pipeline turns a visitor message into a grounded answer through parse, chunk, embed, retrieve, and generate: uploaded documents and crawled websites (Firecrawl) are chunked and embedded into a 1536-dimension Pinecone index namespaced per organization and agent, then the retrieved chunks are passed to an OpenRouter LLM as grounding context. That namespacing is the core safety property of the product: one tenant's data can never surface in another tenant's answer, which is what makes the platform sellable to businesses at all. Grounding every response in retrieved context is also the anti-hallucination strategy, keeping the agent trustworthy enough to put in front of paying customers. Live conversations and human handoff run over Socket.io backed by Redis so a visitor can escalate to a person mid-thread without losing history, authentication uses NextAuth with Google OAuth and JWTs, billing runs through Paddle, and file storage sits on S3-compatible MinIO. Local infrastructure is Docker Compose, and CI/CD runs through GitHub Actions into Coolify.",
+      brief: "A multi-tenant AI support platform that lets any business drop a chat widget onto its site and deflect repetitive support conversations to an agent grounded in its own knowledge base. Operators get a real-time inbox, human handoff, analytics, and self-serve billing, so the product onboards and monetizes customers without engineering in the loop. Retrieval is scoped to each organization and agent with mandatory filters and unscoped queries are refused, so tenant isolation is enforced in code and pinned by automated cross-tenant tests.",
+      technologies: ["TypeScript", "Next.js", "React", "Node.js", "Express", "LangGraph", "LangChain", "LangSmith", "RAG", "Pinecone", "MongoDB", "Redis", "Socket.io", "OpenRouter", "Firecrawl", "NextAuth", "Paddle", "MinIO", "Sentry", "Turborepo", "Tailwind CSS", "Docker", "GitHub Actions"],
+      systemDesignDetails: "A pnpm and Turborepo monorepo of five apps (operator dashboard, admin console, chat widget, embed loader, and an Express + Socket.io API) plus shared packages for UI primitives, cross-app types, tooling config, and RAG evaluation. The agent is a LangGraph state graph of agent, tool, and finalize nodes, with a hard ceiling on tool round trips so a model stuck on a failing tool cannot burn an organization's budget. Uploaded documents and crawled websites (Firecrawl) are chunked and embedded into a 1536-dimension Pinecone index, and retrieval fuses vector search with MongoDB text search using reciprocal rank fusion. Every query must carry organization and agent filters, unscoped queries are refused, and cross-tenant tests pin that behavior: one tenant's data must not surface in another tenant's answer, which is what makes the platform sellable to businesses at all. Answers are grounded in retrieved context and their citations are validated after generation, keeping the agent trustworthy enough to put in front of paying customers. Integration tools for Stripe, Jira, Linear, Calendly, Cal.com, and custom webhooks run server side with rate limiting, OTP identity checks, audit logging, and an AES-256-GCM credential vault that keeps secrets out of the AI runtime. A RAG evaluation harness runs the production retrieval code against a 45-case golden set and flags regressions against committed baselines; the current retrieval baseline scores 0.92 Recall@5 and 0.89 MRR. Per-turn RAG metrics, sampled faithfulness scoring, LangSmith tracing, Sentry, and per-organization budget alerts keep quality and cost visible. Live conversations and human handoff run over Socket.io backed by Redis so a visitor can escalate to a person mid-thread without losing history, authentication uses NextAuth with Google OAuth and JWTs, billing runs through Paddle, and file storage sits on S3-compatible MinIO. Local infrastructure is Docker Compose, and CI/CD runs through GitHub Actions into Coolify, with production deployments behind manual approval.",
       link: ""
+    },
+    {
+      id: 6,
+      title: "Demand & Inventory Management SaaS",
+      brief: "A multi-tenant SaaS that gives wholesalers and retailers a live view of their stock across stores, covering purchase and sales orders, credit sales and repayment, analytics dashboards, barcode scanning, and automated alerts. Every stock movement goes into a ledger, so profit and inventory aging come from costs captured when the stock moved rather than numbers rebuilt after the fact.",
+      technologies: ["Next.js", "React", "TypeScript", "Node.js", "Express", "Supabase", "PostgreSQL", "SQL", "Redis", "Tailwind CSS", "Sentry", "Vercel", "GitHub Actions"],
+      systemDesignDetails: "Tenant isolation lives in the database: PostgreSQL Row-Level Security, combined with role-based access control and audit logging, separates each organization's data, and pgTAP tests cover database behavior. Each stock change is a typed row in a transaction ledger (opening stock, purchase receipt, sale, transfer out, transfer in, transfer return). Arriving stock becomes a FIFO cost layer and outgoing stock draws the oldest layers first, so profit and aging reports read what was recorded at the moment of movement. Redis is a cache in front of the database, never a dependency of it: a failed read is served from the database, and a shared circuit breaker skips Redis during an outage so only the first request waits out the timeout. Push notifications reach phones through an Android and iOS app shell around the web application. GitHub Actions deploys to Vercel and runs scheduled database backups.",
+      link: "https://upstock.ethiotechsolutions.com/"
     },
     {
       id: 2,
@@ -128,7 +136,7 @@ const App = () => {
                 <ul className="list-disc list-inside space-y-2 text-zinc-300">
                   <li>Agents &amp; orchestration: AI agents, LangGraph, LangChain, multi-step workflows, tool calling, MCP, human-in-the-loop</li>
                   <li>RAG &amp; retrieval: Pinecone, embeddings, chunking strategies, hybrid search, re-ranking, grounding &amp; citations</li>
-                  <li>LLMOps: prompt engineering, evaluation harnesses, guardrails, tracing, token &amp; cost optimization</li>
+                  <li>LLMOps: prompt engineering, evaluation harnesses, guardrails, tracing with LangSmith &amp; Langfuse, token &amp; cost optimization</li>
                   <li>Providers &amp; tooling: OpenAI, Anthropic, OpenRouter, Firecrawl, OpenAI-compatible APIs</li>
                 </ul>
               </div>
@@ -137,7 +145,7 @@ const App = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-sage-400">Backend Development</h3>
                 <ul className="list-disc list-inside space-y-2 text-zinc-300">
                   <li>Languages: Java, Python, Scala, PHP, JavaScript</li>
-                  <li>Frameworks: Spring Boot, FastAPI, Play Framework, Laravel, Node.js, Yii, NextJS</li>
+                  <li>Frameworks: Spring Boot, FastAPI, Play Framework, Laravel, Node.js, Express, Yii, NextJS</li>
                   <li>Concepts: OOP, Design patterns, Microservices, gRPC, RESTful APIs, Event Driven architecture</li>
                 </ul>
               </div>
@@ -147,6 +155,7 @@ const App = () => {
                 <ul className="list-disc list-inside space-y-2 text-zinc-300">
                   <li>Relational: PostgreSQL, MySQL</li>
                   <li>NoSQL: MongoDB, Firebase</li>
+                  <li>Caching &amp; messaging: Redis, Kafka</li>
                   <li>Data: SQL, PL/pgSQL, Snowflake, Sumologic</li>
                 </ul>
               </div>
@@ -157,6 +166,7 @@ const App = () => {
                   <li>Cloud: AWS, Vercel, Supabase</li>
                   <li>Containers: Docker, Kubernetes</li>
                   <li>CI/CD: GitHub Actions, Jenkins</li>
+                  <li>Monitoring: Grafana, Sentry</li>
                 </ul>
               </div>
               {/* Frontend */}
@@ -172,7 +182,7 @@ const App = () => {
               <div className="bg-zinc-800 p-6 rounded-xl shadow-md border border-zinc-700">
                 <h3 className="text-2xl font-semibold mb-4 text-sage-400">Collaboration & Communication Tools</h3>
                 <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                  <li>Collaboration: Git, Jira, Confuluence, Lucid Chart</li>
+                  <li>Collaboration: Git, Jira, Confluence, Lucid Chart</li>
                   <li>Communication: Slack, Discord, Zoom, Google Meet</li>
                 </ul>
               </div>
